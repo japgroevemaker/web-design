@@ -1,0 +1,33 @@
+#gallery{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#gallery img{
+margin-top: 1em;
+width: 9em;
+height: 13em;
+}
+
+.overlay{
+  width: 10em;
+  height: 10em;
+  background-color: #000;
+}
+
+@media(min-width: 37.5em){
+  #gallery{
+    width: 70%;
+  }
+
+  #gallery img{
+    width: auto;
+    height: 15em;
+    margin: 1em;
+  }
+
+}
