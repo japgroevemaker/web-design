@@ -113,12 +113,13 @@ var gallery  = {
     var bigImg = document.querySelector('.overlay .bigimg');
     var buttonPrev = document.querySelector('.overlay .previous');
 
+
     if (this.states.current.previousSibling) {
-      buttonPrev.classList.remove('none');
       this.states.current = this.states.current.previousSibling;
       bigImg.src = this.states.current.src;
+      // buttonPrev.classList.remove('none');
     } else  {
-      buttonPrev.classList.add('none');
+      previous.removeChild(previous.lastChild);
     }
   },
 

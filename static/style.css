@@ -3,7 +3,7 @@
 }
 
 .none{
-  display: none;
+  opacity: 0;
 }
 
 #gallery{
@@ -24,15 +24,25 @@
 
 .overlay{
   position: fixed;
+  width: 100% !important;
+  height: 100% !important;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
   background-color: rgba(0, 0, 0, 0.67);
   text-align: center;
-  transition: all 1s ease-in-out;
 }
+
+.overlay.transform{
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  z-index: 2;
+  width: 110% !important;
+  height: 110% !important;
+}
+
 
 .imagebox{
   display: flex;
