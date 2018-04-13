@@ -84,27 +84,54 @@ var gallery  = {
     });
     previous.classList.add('previous');
 
+    var buttonBox = document.createElement('div');
+    buttonBox.classList.add('buttonbox');
+
+    var previousTwo = document.createElement('button');
+    previousTwo.addEventListener('click', function () {
+      self.previous()
+    });
+    previousTwo.classList.add('previoustwo');
+
     var bigImg = document.createElement('img');
     bigImg.classList.add('bigimg');
 
+    var text = document.createElement('p');
+
     bigImg.src = this.states.current.src;
+    text.alt = this.states.current.alt;
+
+    var tags = document.createTextNode(this.states.current.alt);
+
+    text.appendChild(tags);
 
     this.root.appendChild(overlay);
     overlay.appendChild(closebox);
     overlay.appendChild(imgBox);
-    imgBox.appendChild(previous);
+    buttonBox.appendChild(previous);
     imgBox.appendChild(bigImg);
-    imgBox.appendChild(next);
+    imgBox.appendChild(buttonBox);
+    buttonBox.appendChild(previousTwo);
+    buttonBox.appendChild(next);
+    imgBox.appendChild(text);
 
   },
 
   //show next image
   next: function () {
     var bigImg = document.querySelector('.overlay .bigimg');
+    var buttonPrev = document.querySelector('.overlay .previous');
+    var buttonNext = document.querySelector('.overlay .next');
 
-    if (this.states.current.nextSibling) {
+    if (this.states.current.nextSibling.tagName == "IMG") {
       this.states.current = this.states.current.nextSibling;
       bigImg.src = this.states.current.src;
+    }
+
+    if (this.states.current.nextSibling && !this.states.current.nextSibling.nextSibling) {
+      buttonNext.classList.add("disabled-arrow");
+    } else {
+      buttonPrev.classList.remove("disabled-arrow");
     }
   },
 
@@ -112,20 +139,28 @@ var gallery  = {
   previous: function () {
     var bigImg = document.querySelector('.overlay .bigimg');
     var buttonPrev = document.querySelector('.overlay .previous');
+    var buttonNext = document.querySelector('.overlay .next');
 
-
-    if (this.states.current.previousSibling) {
+    if (this.states.current.previousSibling.tagName == "IMG") {
       this.states.current = this.states.current.previousSibling;
       bigImg.src = this.states.current.src;
       // buttonPrev.classList.remove('none');
-    } else  {
-      previous.removeChild(previous.lastChild);
+    }
+    console.log("yes");
+    if (this.states.current.previousSibling && !this.states.current.previousSibling.previousSibling) {
+      buttonPrev.classList.add("disabled-arrow");
+    } else {
+      buttonNext.classList.remove("disabled-arrow");
     }
   },
 
   // close detail
   close: function (event) {
-    event.target.parentNode.remove()
+    event.target.classList.add("close-animation");
+    setTimeout(function() {
+      event.target.parentNode.remove();
+    }, 300);
+
     document.body.classList.remove('noscroll');
   }
 
