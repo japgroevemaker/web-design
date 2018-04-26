@@ -30,6 +30,12 @@ slider.oninput = function() {
 }
 }
 
+var y = document.getElementById("myInput");
+y.oninput = function() {
+    var x = document.getElementById("myInput").value;
+    document.getElementById("text").innerHTML = "You wrote: " + x;
+}
+
 // create canvas element and append it to document body
 var container = document.getElementById('canvas');
 var canvas = document.createElement('canvas');

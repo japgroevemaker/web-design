@@ -10,35 +10,8 @@
 </head>
 
 <body>
-
-    <!-- <nav>
-      <ul>
-        <li><a tabindex="0" href="#1">1</a></li>
-        <li><a tabindex="0" href="#2">2</a></li>
-        <li><a tabindex="0" href="#3">3</a></li>
-        <li><a tabindex="0" href="#4">4</a></li>
-        <li><a tabindex="0" href="#5">5</a></li>
-        <li><a tabindex="0" href="#6">6</a></li>
-        <li><a tabindex="0" href="#7">7</a></li>
-        <li><a tabindex="0" href="#8">8</a></li>
-        <li><a tabindex="0" href="#9">9</a></li>
-        <li><a tabindex="0" href="#10">10</a></li>
-        <li><a tabindex="0" href="#11">11</a></li>
-        <li><a tabindex="0" href="#12">12</a></li>
-        <li><a tabindex="0" href="#13">13</a></li>
-        <li><a tabindex="0" href="#14">14</a></li>
-        <li><a tabindex="0" href="#15">15</a></li>
-        <li><a tabindex="0" href="#16">16</a></li>
-        <li><a tabindex="0" href="#17">17</a></li>
-        <li><a tabindex="0" href="#18">18</a></li>
-        <li><a tabindex="0" href="#19">19</a></li>
-      </ul>
-    </nav> -->
-
-    <!-- <input type="text" name="searchForWord" value="">
-    <button type='submit' name="searchForWord">Zoek</button> -->
-
-
+  <h1>19 Principles of user interface design</h1>
+  <p>This website displays the 19 Principles of user interfac design. All the Principles have an example so you can see what we mean by this principle.</p>
 
     <section tabindex="1" id='top'>
       <section class="left">
@@ -51,7 +24,6 @@
         <h1>Wich one would you click on?</h1>
         <button id="good">Button</button>
         <button id="false">Button</button>
-        <!-- <button tabindex="2" id="backToNav">Naar navigatie</button> -->
       </section>
     </section>
 
@@ -63,7 +35,9 @@
           the world.</p>
       </section>
       <section class="right">
-
+        <h1>Type something in the field</h1>
+        <input id="myInput" type="text" name="" value="" placeholder="Type some text">
+        <p id="text"></p>
       </section>
     </section>
 
@@ -120,8 +94,8 @@
           <input tabindex="9" type="text" name="" value="" placeholder="Naam">
           <input tabindex="10" type="password" name="" value="" placeholder="Wachtwoord">
           <div>
-            <button tabindex="11" type="submit" name="button">Leeg</button>
-            <button tabindex="12" type="submit" name="button">Verstuur</button>
+            <button tabindex="11" type="submit" name="button">Clear</button>
+            <button tabindex="12" type="submit" name="button">Send</button>
           </div>
         </form>
       </section>
@@ -147,10 +121,13 @@
           provide an opening for further interaction. Don't leave a person hanging because they've done what you want them to do…give them a natural next step that helps them further achieve their goals.</p>
       </section>
       <section class="right">
-        <!-- <div id="next-step">
-          <input type="text" name="" value="" placeholder="Naam">
-          <input type="text" name="" value="" placeholder="Naam">
-        </div> -->
+        <h1>Click to continue</h1>
+        <div id="next-step">
+          <input id="first" type="text" name="" value="" placeholder="Naam">
+          <a href="#second">Click here to continue</a>
+          <input id="second" type="text" name="" value="" placeholder="Naam">
+          <a href="#first">Click here to go back</a>
+        </div>
       </section>
 
     </section>
