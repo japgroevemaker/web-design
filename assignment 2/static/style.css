@@ -148,6 +148,13 @@ section:focus{
 
 #enlarge{
   transition: font-size 700ms;
+  width: auto;
+  margin: 0;
+}
+
+#demo{
+  margin: 0;
+  width: auto;
 }
 
 canvas{
