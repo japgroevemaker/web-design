@@ -17,6 +17,8 @@ De 1e jaars CMS studenten die net op de opleiding zitten en nog geen idee hebben
 * De studenten moeten meteen kunnen begrijpen wat er van hun wordt verwacht op deze website.
 * De student moet, na dat hij zelf heeft geinteracteerd met het principe, door gelinkd worden naar voorbeelden van dit principe.
 
+Ik maak deze website voor 1e jaars CMD studenten die het vak HCI aan het volgen zijn. Dit zijn de 19 principes uit de reader die zij uitgereikt krijgen om zichzelf voor te bereiden op het tentamen. Deze website zorgt ervoor dat ze een beeld krijgen bij elk van de principes door ze er mee te laten interacteren. Tevens zitten er bij een select aantal ook studenten naslag werk bij zodat zij voorbeelden krijgen uit de praktijk. De student kan zich met deze website ook voorbereiden op het tentamen, ookal omvat deze website maar een klein gedeelte van het tentamen. 
+
 ## Website
 Ik heb er voor gekozen een website te bouwen die de 19 Principles of user interface design bevat. Het concept is om de gebruiker de principle te laten lezen aan de linkerkant, om hem vervolgens aan de rechterkant te laten interacteren met de principle.
 

@@ -1,87 +1,223 @@
+var scrollable = {
+  scroll: function (){
+    window.onscroll = function() {
+      var counter = 0;
+      var element = document.querySelectorAll('#container','section');
+      var nav = document.querySelector('nav');
+      // var sticky = nav.offsetTop;
+      // if (window.pageYOffset >= sticky) {
+      //   nav.classList.add('sticky')
+      // } else {
+      //   nav.classList.remove('sticky')
+      // }
+      console.log(element);
+      var containerCheck = element.offsetTop;
+      // console.log(containerCheck);
+      var scrollPosY = window.pageYOffset | document.body.scrollTop;
+      // console.log(scrollPosY);
+      var listItems = document.querySelector('li');
 
-var peace = document.getElementById('peace');
-
-
-function addMargin() {
-  var three = document.getElementById('three');
-  three.classList.toggle('marginToggle');
+      for (var i = 0; i < element.length; i++) {
+        element[i].offsetHeight
+        // console.log(element[i].offsetHeight);
+        if (element[i].offsetHeight >= 421 && scrollPosY >= 1200) {
+          counter++
+          listItems.classList.add('color')
+          nav.classList.add('sticky')
+        } else {
+          counter--
+          listItems.classList.remove('color')
+          nav.classList.remove('sticky');
+        }
+      }
+    }
+  }
 }
+scrollable.scroll()
 
-peace.addEventListener('click', addMargin);
+var studentWork = {
+  filter: function () {
+    var student = document.querySelector('.student')
+    student.addEventListener('click', function(){
 
-var slider = document.getElementById('slider');
-var output = document.getElementById('demo');
+      var li = document.querySelectorAll('li');
+      var p = document.querySelectorAll('li p');
 
 
-output.innerHTML = "Normal"
-
-slider.oninput = function() {
-  var myP = document.getElementById('enlarge');
-  // var value = myP.getPropertyValue('font-size');
-  if (slider.value < 2) {
-    myP.style.fontSize = '1.2em'
-    output.innerHTML = 'Normal'
-  } else if (slider.value > 1 && slider.value < 3) {
-  myP.style.fontSize = '2em'
-  output.innerHTML = 'Large'
-} else if (slider.value > 2){
-  myP.style.fontSize = '3em';
-  output.innerHTML = 'Very large'
+      for (var i = 0; i < li.length; i++) {
+        if(li[i].hasAttribute("data-bind") == true && student.checked == true) {
+        li[i].classList.remove('none');
+      } else if(li[i].hasAttribute("data-bind") == false && student.checked == true)  {
+        li[i].classList.add('none')
+      } else {
+        li[i].classList.remove('none');
+      }
+    }
+  })
+  }
 }
+studentWork.filter()
+
+var readInPeace = {
+  toggle: function () {
+    var peaceButton = document.getElementById('peace');
+    var close = document.querySelector('.close');
+
+    function toggleText () {
+      var text = document.getElementById('toggle-peace');
+      text.style.display = "flex"
+    }
+
+    function closeText() {
+      var text = document.getElementById('toggle-peace');
+      text.style.display = "none"
+    }
+
+    peaceButton.addEventListener('click', toggleText)
+    close.addEventListener('click', closeText);
+  }
 }
+readInPeace.toggle()
 
-var y = document.getElementById("myInput");
-y.oninput = function() {
-    var x = document.getElementById("myInput").value;
-    document.getElementById("text").innerHTML = "You wrote: " + x;
+var textSlider = {
+  slider: function () {
+    var slider = document.getElementById('slider');
+    var output = document.getElementById('demo');
+
+    output.innerHTML = "Normal"
+
+    slider.oninput = function() {
+      var myP = document.getElementById('enlarge');
+      // var value = myP.getPropertyValue('font-size');
+      if (slider.value < 2) {
+        myP.style.fontSize = '1.2em'
+        output.innerHTML = 'Normal'
+      } else if (slider.value > 1 && slider.value < 3) {
+      myP.style.fontSize = '2em'
+      output.innerHTML = 'Large'
+    } else if (slider.value > 2){
+      myP.style.fontSize = '3em';
+      output.innerHTML = 'Very large'
+    }
+    }
+  }
 }
+textSlider.slider()
 
-// create canvas element and append it to document body
-var container = document.getElementById('canvas');
-var canvas = document.createElement('canvas');
-container.appendChild(canvas);
 
-// some hotfixes... ( ≖_≖)
-// document.body.style.margin = 0;
-// canvas.style.position = 'fixed';
+var draw = {
+  canvas: function () {
+    var y = document.getElementById("myInput");
+    y.oninput = function() {
+        var x = document.getElementById("myInput").value;
+        document.getElementById("text").innerHTML = "You wrote: " + x;
+    }
 
-// get canvas 2D context and set him correct size
-var ctx = canvas.getContext('2d');
-resize();
+    // create canvas element and append it to document body
+    var container = document.getElementById('canvas');
+    var canvas = document.createElement('canvas');
+    container.appendChild(canvas);
 
-// last known position
-var pos = { x: 0, y: 0 };
+    // some hotfixes... ( ≖_≖)
+    // document.body.style.margin = 0;
+    // canvas.style.position = 'fixed';
 
-window.addEventListener('resize', resize);
-document.addEventListener('mousemove', draw);
-document.addEventListener('mousedown', setPosition);
-document.addEventListener('mouseenter', setPosition);
+    // get canvas 2D context and set him correct size
+    var ctx = canvas.getContext('2d');
+    resize();
 
-// new position from mouse event
-function setPosition(e) {
-  pos.x = e.clientX;
-  pos.y = e.clientY;
+    // last known position
+    var pos = { x: 0, y: 0 };
+
+    window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseenter', setPosition);
+
+    // new position from mouse event
+    function setPosition(e) {
+      pos.x = e.clientX;
+      pos.y = e.clientY;
+    }
+
+    // resize canvas
+    function resize() {
+      ctx.canvas.width = window.outerWidth
+      ctx.canvas.height = window.outerHeight
+    }
+
+    function draw(e) {
+      // mouse left button must be pressed
+      if (e.buttons !== 1) return;
+
+      ctx.beginPath(); // begin
+
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#c0392b';
+
+      ctx.moveTo(pos.x, pos.y); // from
+      setPosition(e);
+      ctx.lineTo(pos.x, pos.y); // to
+
+      ctx.stroke(); // draw it!
+    }
+  }
 }
+draw.canvas()
 
-// resize canvas
-function resize() {
-  ctx.canvas.width = window.outerWidth
-  ctx.canvas.height = window.outerHeight
+var fillInDetails = {
+  details: function () {
+
+  var huidigePagina = 0;
+
+  var formButton = document.getElementById('overlay-form-toggle');
+  var closeButton = document.getElementById('close');
+
+    function toggleForm() {
+      var form = document.getElementById('overlay-form');
+      form.style.display = "block"
+    }
+
+    // function closeForm() {
+    //   var form = document.getElementById('overlay-form');
+    //   form.style.display = "none"
+    // }
+
+    formButton.addEventListener('click', toggleForm);
+    // closeButton.addEventListener('click', closeForm);
+
+
+
+    document.getElementById('next').addEventListener('click', function() {
+      huidigePagina++
+      console.log(huidigePagina);
+      for (var i = 0; i < document.querySelectorAll('.section').length; i++) {
+        document.querySelectorAll('.section')[i].classList.add('none')
+      }
+      if (huidigePagina == 1 ) {
+        document.getElementById(huidigePagina).classList.remove('none')
+        document.getElementById(huidigePagina).classList.add('section')
+      }
+
+    })
+
+    document.getElementById('close').addEventListener('click', function() {
+      huidigePagina--
+      console.log(huidigePagina);
+      var form = document.getElementById('overlay-form');
+      form.style.display = "none"
+    })
+  }
 }
+fillInDetails.details()
 
-function draw(e) {
-  // mouse left button must be pressed
-  if (e.buttons !== 1) return;
-
-  ctx.beginPath(); // begin
-
-  ctx.lineWidth = 5;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = '#c0392b';
-
-  ctx.moveTo(pos.x, pos.y); // from
-  setPosition(e);
-  ctx.lineTo(pos.x, pos.y); // to
-
-  ctx.stroke(); // draw it!
-}
+// var navBtn = document.getElementById('burger');
+//
+// function slide() {
+//
+//   var nav = document.querySelector('nav');
+//   nav.classList.toggle('nav-slide')
+// }
+//
+// navBtn.addEventListener('click', slide);
