@@ -350,7 +350,7 @@ nav a:focus{
 main section {
   padding: 3em;
   box-sizing: border-box;
-  width: 90em;
+  width: 90%;
   margin: auto 2em;
   display: flex;
   flex-direction: row;
