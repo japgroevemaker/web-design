@@ -1,5 +1,5 @@
 
-var button = document.querySelector('div');
+var button = document.querySelector('button');
 
 function back() {
   window.history.back();

@@ -398,6 +398,15 @@ section p{
 
 .left a {
   margin: 2em auto;
+  transition: all 0.2s;
+  color: #fff;
+  text-decoration: none;
+}
+
+.left a:hover,
+.left a:focus {
+  transform: scale(1.10, 1.10);
+  transition: all 0.2s;
 }
 
 .right {
@@ -437,6 +446,7 @@ section p{
   font-family: var(--font-second);
   transition: all 0.2s;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 #peace:hover,
@@ -498,6 +508,7 @@ width: 18em;
   font-family: var(--font-second);
   transition: all 0.2s;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 #good:hover,
@@ -566,13 +577,35 @@ canvas{
   flex-direction: row;
 }
 
+.right form div button {
+  border-radius: 0.1em;
+  width: 50%;
+  height: 3em;
+  border: solid 0.1em var(--link-color);
+  color: #000;
+  background-color: #fff;
+  font-family: var(--font-second);
+  transition: all 0.2s;
+  font-size: 0.8em;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.right form div button:hover,
+.right form div button:focus {
+  background-color: var(--link-color);
+  transform: scale(1.10, 1.10);
+  transition: all 0.2s;
+  color: #fff;
+}
+
 .right form input{
   width: 20em;
   height: 3em;
 }
 
 .right input{
-  width: 20em;
+  width: 50%;
   height: 3em;
 }
 
@@ -612,47 +645,6 @@ canvas{
   color: white;
 }
 
-#next-step{
-  text-align: center;
-  height: 10em;
-  width: 30em;
-  overflow-x: scroll;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  scroll-behavior: smooth;
-  border: var(--border);
-}
-
-#next-step input {
-  margin: 0.5em auto;
-}
-
-#next-step a {
-  background-color: #fff;
-  padding: 1em;
-  width: 50%;
-  height: 2em;
-  font-size: 1em;
-  font-family: var(--font-second);
-  text-decoration: none;
-  color: #000;
-  margin: 0.5em auto;
-  border: solid 0.01em var(--link-color);
-}
-
-#next-step a:hover {
-  background-color: var(--link-color);
-  transform: scale(1.05, 1.05);
-  color: #fff;
-  transition: all 0.2s;
-  outline: none;
-}
-
-#next-step input:nth-of-type(2){
-  margin-top: 15em;
-}
-
 #overlay-form-toggle {
   border-radius: 0.1em;
   width: 100%;
@@ -663,6 +655,7 @@ canvas{
   font-family: var(--font-second);
   transition: all 0.2s;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 #overlay-form-toggle:hover,
@@ -697,16 +690,83 @@ canvas{
   text-align: center;
 }
 
+#button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+}
+
+#next,
+#close {
+  border-radius: 0.1em;
+  width: 50%;
+  height: 3em;
+  border: solid 0.1em var(--link-color);
+  color: #000;
+  background-color: #fff;
+  font-family: var(--font-second);
+  transition: all 0.2s;
+  font-size: 0.8em;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#prev {
+  border-radius: 0.1em;
+  width: 10%;
+  height: 3em;
+  border: solid 0.1em var(--link-color);
+  color: #000;
+  background-color: #fff;
+  font-family: var(--font-second);
+  transition: all 0.2s;
+  font-size: 0.8em;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+
+#next:hover,
+#next:focus,
+#close:hover,
+#close:focus,
+#prev:hover,
+#prev:focus {
+  background-color: var(--link-color);
+  transform: scale(1.05, 1.05);
+  transition: all 0.2s;
+  color: #fff;;
+}
+
 /* detail-page */
 
 .back {
-  width: 5em;
-  height: 5em;
-  background-color: #000;
+  text-align: center;
+  margin: 2em auto;
+  border-radius: 0.1em;
+  width: 50%;
+  height: 3em;
+  border: solid 0.1em var(--link-color);
+  color: #000;
+  background-color: #fff;
+  font-family: var(--font-second);
+  font-size: 0.8em;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.back:hover {
+  transform: scale(1.05, 1.05);
+  transition: all 0.2s;
+  background-color: var(--link-color);
+  color: #fff;
 }
 
 #box {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 90%;
   margin: auto;

@@ -1,8 +1,8 @@
 var scrollable = {
-  scroll: function (){
+  scroll: function() {
     window.onscroll = function() {
       var counter = 0;
-      var element = document.querySelectorAll('#container','section');
+      var element = document.querySelectorAll('#container', 'section');
       var nav = document.querySelector('nav');
       // var sticky = nav.offsetTop;
       // if (window.pageYOffset >= sticky) {
@@ -10,7 +10,7 @@ var scrollable = {
       // } else {
       //   nav.classList.remove('sticky')
       // }
-      console.log(element);
+      // console.log(element);
       var containerCheck = element.offsetTop;
       // console.log(containerCheck);
       var scrollPosY = window.pageYOffset | document.body.scrollTop;
@@ -21,12 +21,12 @@ var scrollable = {
         element[i].offsetHeight
         // console.log(element[i].offsetHeight);
         if (element[i].offsetHeight >= 421 && scrollPosY >= 1200) {
-          counter++
-          listItems.classList.add('color')
+          // counter++
+          // listItems.classList.add('color')
           nav.classList.add('sticky')
         } else {
-          counter--
-          listItems.classList.remove('color')
+          // counter--
+          // listItems.classList.remove('color')
           nav.classList.remove('sticky');
         }
       }
@@ -36,34 +36,34 @@ var scrollable = {
 scrollable.scroll()
 
 var studentWork = {
-  filter: function () {
+  filter: function() {
     var student = document.querySelector('.student')
-    student.addEventListener('click', function(){
+    student.addEventListener('click', function() {
 
       var li = document.querySelectorAll('li');
       var p = document.querySelectorAll('li p');
 
 
       for (var i = 0; i < li.length; i++) {
-        if(li[i].hasAttribute("data-bind") == true && student.checked == true) {
-        li[i].classList.remove('none');
-      } else if(li[i].hasAttribute("data-bind") == false && student.checked == true)  {
-        li[i].classList.add('none')
-      } else {
-        li[i].classList.remove('none');
+        if (li[i].hasAttribute("data-bind") == true && student.checked == true) {
+          li[i].classList.remove('none');
+        } else if (li[i].hasAttribute("data-bind") == false && student.checked == true) {
+          li[i].classList.add('none')
+        } else {
+          li[i].classList.remove('none');
+        }
       }
-    }
-  })
+    })
   }
 }
 studentWork.filter()
 
 var readInPeace = {
-  toggle: function () {
+  toggle: function() {
     var peaceButton = document.getElementById('peace');
     var close = document.querySelector('.close');
 
-    function toggleText () {
+    function toggleText() {
       var text = document.getElementById('toggle-peace');
       text.style.display = "flex"
     }
@@ -80,7 +80,7 @@ var readInPeace = {
 readInPeace.toggle()
 
 var textSlider = {
-  slider: function () {
+  slider: function() {
     var slider = document.getElementById('slider');
     var output = document.getElementById('demo');
 
@@ -93,26 +93,41 @@ var textSlider = {
         myP.style.fontSize = '1.2em'
         output.innerHTML = 'Normal'
       } else if (slider.value > 1 && slider.value < 3) {
-      myP.style.fontSize = '2em'
-      output.innerHTML = 'Large'
-    } else if (slider.value > 2){
-      myP.style.fontSize = '3em';
-      output.innerHTML = 'Very large'
-    }
+        myP.style.fontSize = '2em'
+        output.innerHTML = 'Large'
+      } else if (slider.value > 2) {
+        myP.style.fontSize = '3em';
+        output.innerHTML = 'Very large'
+      }
     }
   }
 }
 textSlider.slider()
 
-
-var draw = {
-  canvas: function () {
+var write = {
+  written: function() {
     var y = document.getElementById("myInput");
+
     y.oninput = function() {
-        var x = document.getElementById("myInput").value;
-        document.getElementById("text").innerHTML = "You wrote: " + x;
+      var x = document.getElementById("myInput").value;
+      // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+      // localStorage.setItem('items', JSON.stringify(itemsArray))
+      // const data = JSON.parse(localStorage.getItem('items'));
+      // itemsArray.push(x)
+      // console.log(itemsArray);
+      // localStorage.setItem('items', JSON.stringify(itemsArray))
+      // console.log(localStorage);
+      document.getElementById("text").innerHTML = "You wrote: " + x;
+
     }
 
+  }
+}
+write.written()
+localStorage.clear();
+
+var draw = {
+  canvas: function() {
     // create canvas element and append it to document body
     var container = document.getElementById('canvas');
     var canvas = document.createElement('canvas');
@@ -127,7 +142,10 @@ var draw = {
     resize();
 
     // last known position
-    var pos = { x: 0, y: 0 };
+    var pos = {
+      x: 0,
+      y: 0
+    };
 
     window.addEventListener('resize', resize);
     document.addEventListener('mousemove', draw);
@@ -167,12 +185,12 @@ var draw = {
 draw.canvas()
 
 var fillInDetails = {
-  details: function () {
+  details: function() {
 
-  var huidigePagina = 0;
+    var huidigePagina = 0;
 
-  var formButton = document.getElementById('overlay-form-toggle');
-  var closeButton = document.getElementById('close');
+    var formButton = document.getElementById('overlay-form-toggle');
+    var closeButton = document.getElementById('close');
 
     function toggleForm() {
       var form = document.getElementById('overlay-form');
@@ -195,11 +213,18 @@ var fillInDetails = {
       for (var i = 0; i < document.querySelectorAll('.section').length; i++) {
         document.querySelectorAll('.section')[i].classList.add('none')
       }
-      if (huidigePagina == 1 ) {
-        document.getElementById(huidigePagina).classList.remove('none')
-        document.getElementById(huidigePagina).classList.add('section')
-      }
 
+      document.getElementById(huidigePagina).classList.remove('none')
+      document.getElementById(huidigePagina).classList.add('section')
+
+    })
+
+    document.getElementById('prev').addEventListener('click', function() {
+      huidigePagina--
+      for (var i = 0; i < document.querySelectorAll('.section').length; i++) {
+        document.querySelectorAll('.section')[i].classList.add('none')
+      }
+      document.getElementById(huidigePagina).classList.remove("none")
     })
 
     document.getElementById('close').addEventListener('click', function() {
@@ -211,13 +236,3 @@ var fillInDetails = {
   }
 }
 fillInDetails.details()
-
-// var navBtn = document.getElementById('burger');
-//
-// function slide() {
-//
-//   var nav = document.querySelector('nav');
-//   nav.classList.toggle('nav-slide')
-// }
-//
-// navBtn.addEventListener('click', slide);

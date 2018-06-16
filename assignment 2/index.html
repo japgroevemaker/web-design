@@ -22,11 +22,11 @@
     <ul>
       <li data-bind="student"><a href="#top">01. Clarity is job #1</a><p class="white">&#9997;</p></li>
       <li><a href="#2">02. Interfaces exist to enable interaction</a></li>
-      <li data-bind="student"><a href="#three">03. Conserve attention at all costs</a><p class="white">&#9997;</p></li>
+      <li><a href="#three">03. Conserve attention at all costs</a></li>
       <li><a href="#4">04. Keep users in control</a></li>
-      <li data-bind="student"><a href="#5">05. Direct manipulation is best</a><p class="white">&#9997;</p></li>
-      <li><a href="#6">06. One primary action per screen</a></li>
-      <li><a href="#7">07. Keep secondary actions secondary</a></li>
+      <li><a href="#5">05. Direct manipulation is best</a></li>
+      <li data-bind="student"><a href="#6">06. One primary action per screen</a><p class="white">&#9997;</p></li>
+      <li data-bind="student"><a href="#7">07. Keep secondary actions secondary</a><p class="white">&#9997;</p></li>
       <li><a href="#8">08. Provide a natural next step</a></li>
       <li><a href="#9">09. Appearance follows behavior</a></li>
       <li><a href="#10">10. Consistency matters</a></li>
@@ -52,9 +52,9 @@
         with, predict what will happen when they use it, and then successfully interact with it. While there is room for mystery and delayed gratification in interfaces, there is no room for confusion. Clarity inspires confidence and leads to further
         use. One hundred clear screens is preferable to a single cluttered one.</p>
         <h2>Student examples &#9997;</h2>
-        <a href="clarity1.html"><img src="image/clarity1.jpg"/></a>
-        <a href="clarity2.html"><img src="image/clarity2.jpg"/></a>
-        <a href="clarity3.html"><img src="image/clarity3.jpg"/></a>
+        <a id="student" href="clarity1.html"><img src="image/clarity1.jpg"/><p class="white">&#10004;</p></a>
+        <a href="clarity2.html"><img src="image/clarity2.jpg"/><p class="white">&#10004;</p></a>
+        <a href="clarity3.html"><img src="image/clarity3.jpg"/><p class="white">&#10004;</p></a>
     </section>
     <section id="clarity" class="right">
       <h1>Wich one would you click on?</h1>
@@ -83,10 +83,6 @@
       <p>We live in a world of interruption. It's hard to read in peace anymore without something trying to distract us and direct our attention elsewhere. Attention is precious. Don't litter the side of your applications with distractible material…remember
         why the screen exists in the first place. If someone is reading let them finish reading before showing that advertisement (if you must). Honor attention and not only will your readers be happier, your results will be better. When use is the primary
         goal, attention becomes the prerequisite. Conserve it at all costs.</p>
-        <h2>Student examples &#9997;</h2>
-        <a href="clarity1.html"><img src="image/clarity1.jpg"/></a>
-        <a href="clarity2.html"><img src="image/clarity2.jpg"/></a>
-        <a href="clarity3.html"><img src="image/clarity3.jpg"/></a>
     </section>
     <section class="right">
       <h1>Read this text in peace</h1>
@@ -135,6 +131,9 @@
       <h1>06. One primary action per screen</h1>
       <p>Every screen we design should support a single action of real value to the person using it. This makes it easier to learn, easier to use, and easier to add to or build on when necessary. Screens that support two or more primary actions become confusing
         quickly. Like a written article should have a single, strong thesis, every screen we design should support a single, strong action that is its raison d'etre.</p>
+        <h2>Student examples &#9997;</h2>
+        <a href="action1.html"><img src="image/primary1.jpg"/></a>
+        <a href="action2.html"><img src="image/primary2.jpg"/></a>
     </section>
     <section class="right">
       <h1>Fill in your name and password</h1>
@@ -155,6 +154,8 @@
       <h1>07. Keep secondary actions secondary</h1>
       <p>Screens with a single primary action can have multiple secondary actions but they need to be kept secondary! The reason why your article exists isn't so that people can share it on Twitter…it exists for people to read and understand it. Keep secondary
         actions secondary by making them lighter weight visually or shown after the primary action has been achieved.</p>
+        <h2>Student examples &#9997;</h2>
+        <a href="secundair1.html"><img src="image/secundair1.jpg"/></a>
     </section>
     <section class="right">
       <h1>Share it, if you want</h1>
@@ -171,11 +172,6 @@
     </section>
     <section class="right">
       <h1>Fill in the details</h1>
-      <!-- <div id="next-step">
-        <input id="first" type="text" name="" value="" placeholder="Name">
-        <a href="#second">Click here to continue</a>
-        <input id="second" type="text" name="" value="" placeholder="Surname">
-      </div> -->
       <button id="overlay-form-toggle">Fill in details</button>
       <div id="overlay-form">
         <section id="0" class="section">
@@ -186,7 +182,10 @@
         <section id="1" class="none" class="section">
           <h1>Fill in your lastname</h1>
           <input type="text" name="" value="" placeholder="Lastname">
-          <button id="close">Done</button>
+          <div id="button-box">
+            <button id="prev">Back</button>
+            <button id="close">Done</button>
+          </div>
         </section>
       </div>
     </section>
