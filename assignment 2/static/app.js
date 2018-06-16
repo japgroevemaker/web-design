@@ -110,21 +110,11 @@ var write = {
 
     y.oninput = function() {
       var x = document.getElementById("myInput").value;
-      // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-      // localStorage.setItem('items', JSON.stringify(itemsArray))
-      // const data = JSON.parse(localStorage.getItem('items'));
-      // itemsArray.push(x)
-      // console.log(itemsArray);
-      // localStorage.setItem('items', JSON.stringify(itemsArray))
-      // console.log(localStorage);
       document.getElementById("text").innerHTML = "You wrote: " + x;
-
     }
-
   }
 }
 write.written()
-localStorage.clear();
 
 var draw = {
   canvas: function() {
