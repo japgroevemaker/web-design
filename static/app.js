@@ -12,31 +12,22 @@ var gallery  = {
     this.api();
   },
 
-
-
   // get images form api
   api: function () {
     var self = this;
-    var request = new XMLHttpRequest();
+    apiBasisUrl = 'https://pixabay.com/api/',
+    apiKey = '?key=8636082-8f8af68a2321d1c7e2992a562&',
+    query = `q=`,
+    amount = '&per_page=100',
 
-    request.open('GET', 'https://pixabay.com/api/?key=8636082-8f8af68a2321d1c7e2992a562&q=Forest&per_page=100', true);
-    request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-       // Success!
-        var data = JSON.parse(request.responseText);
+    url = apiBasisUrl + apiKey + query + amount
 
-        self.overview(data)
-
-
-      } else {
-       // We reached our target server, but it returned an error
-
-      }
-    };
-    request.onerror = function() {
-     // There was a connection error of some sort
-    };
-    request.send();
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data){
+      console.log(data);
+      self.overview(data)
+    })
   },
 
   // render overview
@@ -97,11 +88,13 @@ var gallery  = {
     bigImg.classList.add('bigimg');
 
     var text = document.createElement('p');
+    text.classList.add('text');
 
     bigImg.src = this.states.current.src;
     text.alt = this.states.current.alt;
 
     var tags = document.createTextNode(this.states.current.alt);
+
 
     text.appendChild(tags);
 
@@ -122,10 +115,13 @@ var gallery  = {
     var bigImg = document.querySelector('.overlay .bigimg');
     var buttonPrev = document.querySelector('.overlay .previous');
     var buttonNext = document.querySelector('.overlay .next');
+    var tags = document.querySelector('.text');
 
     if (this.states.current.nextSibling.tagName == "IMG") {
       this.states.current = this.states.current.nextSibling;
       bigImg.src = this.states.current.src;
+      tags.alt = this.states.current.alt;
+      document.querySelector("p.text").innerHTML = tags.alt
     }
 
     if (this.states.current.nextSibling && !this.states.current.nextSibling.nextSibling) {
@@ -144,7 +140,6 @@ var gallery  = {
     if (this.states.current.previousSibling.tagName == "IMG") {
       this.states.current = this.states.current.previousSibling;
       bigImg.src = this.states.current.src;
-      // buttonPrev.classList.remove('none');
     }
     console.log("yes");
     if (this.states.current.previousSibling && !this.states.current.previousSibling.previousSibling) {
