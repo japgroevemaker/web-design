@@ -726,6 +726,11 @@ input:valid {
   width: 80%;
 }
 
+#overlay-form label {
+  font-family: var(--font-type);
+  margin-bottom: 1em;
+}
+
 #next,
 #close {
   border-radius: 0.1em;
