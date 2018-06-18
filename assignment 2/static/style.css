@@ -148,10 +148,12 @@ html{
   -webkit-animation: fadeInUp 0.9s;
 }
 
-#intro button {
+#intro a {
+  padding-top: 0.8em;
+  text-decoration: none;
   border-radius: 0.1em;
   width: 100%;
-  height: 3em;
+  height: 2.5em;
   border: solid 0.1em var(--link-color);
   color: #000;
   background-color: #fff;
@@ -167,8 +169,8 @@ html{
   color: #000;
 }
 
-#intro button:hover,
-#intro a:focus button  {
+#intro a:hover,
+#intro a:focus  {
   background-color: var(--link-color);
   transform: scale(1.10, 1.10);
   color: #fff;
@@ -351,7 +353,7 @@ main section {
   padding: 3em;
   box-sizing: border-box;
   width: 90%;
-  margin: auto 2em;
+  margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -407,9 +409,11 @@ section p{
 .left a:focus {
   transform: scale(1.10, 1.10);
   transition: all 0.2s;
+  outline: none;
 }
 
 .right {
+  align-items: center;
   flex-direction: column;
   width: 50%;
   border: none;
@@ -434,6 +438,7 @@ section p{
   transform: scale(1.05, 1.05);
   transition: all 0.2s;
   color: var(--link-color);
+  outline: none;
 }
 
 #peace{
@@ -520,7 +525,6 @@ width: 18em;
   outline: none;
 }
 
-
 #false{
   background-color: #fff;
   color: #000;
@@ -564,7 +568,6 @@ canvas{
   border-radius: 0.2em;
 }
 
-
 .right form{
   display: flex;
   flex-wrap: wrap;
@@ -572,9 +575,34 @@ canvas{
   margin: auto;
 }
 
+.right form label {
+  font-family: var(--font-type);
+  margin-top: 1em;
+}
+
 .right div{
   display: flex;
   flex-direction: row;
+}
+
+input {
+  border: var(--border);
+  text-align: center;
+}
+
+input:focus {
+  transform: scale(1.05, 1.05);
+  outline: none;
+}
+
+input:invalid:focus {
+  background-color: #ff9999;
+  transition: all 0.2s;
+}
+
+input:valid {
+  background-color: #ddffcc;
+  transition: all 0.2s;
 }
 
 .right form div button {
@@ -597,6 +625,7 @@ canvas{
   transform: scale(1.10, 1.10);
   transition: all 0.2s;
   color: #fff;
+  outline: none;
 }
 
 .right form input{
@@ -736,7 +765,8 @@ canvas{
   background-color: var(--link-color);
   transform: scale(1.05, 1.05);
   transition: all 0.2s;
-  color: #fff;;
+  color: #fff;
+  outline: none;
 }
 
 /* detail-page */

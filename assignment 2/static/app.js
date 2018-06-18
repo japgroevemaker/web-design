@@ -4,22 +4,16 @@ var scrollable = {
       var counter = 0;
       var element = document.querySelectorAll('#container', 'section');
       var nav = document.querySelector('nav');
-      // var sticky = nav.offsetTop;
-      // if (window.pageYOffset >= sticky) {
-      //   nav.classList.add('sticky')
-      // } else {
-      //   nav.classList.remove('sticky')
-      // }
-      // console.log(element);
+
       var containerCheck = element.offsetTop;
-      // console.log(containerCheck);
+
       var scrollPosY = window.pageYOffset | document.body.scrollTop;
-      // console.log(scrollPosY);
+
       var listItems = document.querySelector('li');
 
       for (var i = 0; i < element.length; i++) {
         element[i].offsetHeight
-        // console.log(element[i].offsetHeight);
+
         if (element[i].offsetHeight >= 421 && scrollPosY >= 1200) {
           // counter++
           // listItems.classList.add('color')
@@ -194,7 +188,6 @@ var fillInDetails = {
 
     formButton.addEventListener('click', toggleForm);
     // closeButton.addEventListener('click', closeForm);
-
 
 
     document.getElementById('next').addEventListener('click', function() {

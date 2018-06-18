@@ -15,7 +15,7 @@
     <p>This website displays the 19 Principles of user interface design by Joshua Porter. All the Principles have an example and some of them have examples made by students of higher years.
       In this way you can see what we mean by this principle and interact with the principle so that you also <b><i>understand</i></b> the principle.<br /><br />
       It is also possible to prepare yourself for the exam with this website. Each principle has a <b><i>valid</i></b> example of the all day implementation which you can recall in the exam. Keep in mind that this is only a part of the exam and that there is more to learn.</p>
-    <a href="#top"><button>To the principles</button></a>
+    <a href="#top">To the principles</a>
   </div>
 
   <nav>
@@ -72,7 +72,7 @@
     </section>
     <section class="right">
       <h1>Type something in the field</h1>
-      <input id="myInput" type="text" name="" value="" placeholder="Type some text">
+      <input id="myInput" type="text" name="" value="" placeholder="Type some text" required>
       <p id="text"></p>
     </section>
   </section>
@@ -93,7 +93,6 @@
         <p>We live in a world of interruption. It's hard to read in peace anymore without something trying to distract us and direct our attention elsewhere. Attention is precious. Don't litter the side of your applications with distractible material…remember
           why the screen exists in the first place. If someone is reading let them finish reading before showing that advertisement (if you must). Honor attention and not only will your readers be happier, your results will be better. When use is the primary
           goal, attention becomes the prerequisite. Conserve it at all costs.</p>
-
       </div>
     </section>
   </section>
@@ -136,10 +135,12 @@
         <a href="action2.html"><img src="image/primary2.jpg"/></a>
     </section>
     <section class="right">
-      <h1>Fill in your name and password</h1>
+      <h1>Fill in your email and password</h1>
       <form >
-        <input type="text" name="" value="" placeholder="Naam">
-        <input type="password" name="" value="" placeholder="Wachtwoord">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="email" required autocomplete="email">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="password" required>
         <div>
           <button type="reset" name="button">Clear</button>
           <button type="reset" name="button">Send</button>
@@ -176,12 +177,14 @@
       <div id="overlay-form">
         <section id="0" class="section">
           <h1>Fill in your firstname</h1>
-          <input type="text" name="" value="" placeholder="Name">
+          <label for="first-name">Firstname</label>
+          <input id="first-name" type="text" placeholder="Name" pattern="[A-Za-z]{3}" required>
           <button id="next">Next</button>
         </section>
         <section id="1" class="none" class="section">
           <h1>Fill in your lastname</h1>
-          <input type="text" name="" value="" placeholder="Lastname">
+          <label for="last-name">lastname</label>
+          <input type="text" id="last-name" placeholder="Lastname" required>
           <div id="button-box">
             <button id="prev">Back</button>
             <button id="close">Done</button>
