@@ -5,6 +5,8 @@ var scrollable = {
       var element = document.querySelectorAll('#container', 'section');
       var nav = document.querySelector('nav');
 
+      var saveButton = document.querySelector("#save-progress")
+
       var containerCheck = element.offsetTop;
 
       var scrollPosY = window.pageYOffset | document.body.scrollTop;
@@ -17,10 +19,12 @@ var scrollable = {
         if (element[i].offsetHeight >= 421 && scrollPosY >= 1200) {
           // counter++
           // listItems.classList.add('color')
+          saveButton.classList.add('sticky-button');
           nav.classList.add('sticky')
         } else {
           // counter--
           // listItems.classList.remove('color')
+          saveButton.classList.remove('sticky-button');
           nav.classList.remove('sticky');
         }
       }
@@ -219,3 +223,29 @@ var fillInDetails = {
   }
 }
 fillInDetails.details()
+
+var keepChecked = {
+  checking: function () {
+
+    var btn = document.getElementById('save-progress');
+
+    function save(){
+        var checkbox = document.querySelector('.check-input');
+        localStorage.setItem('keepChecked', checkbox.checked);
+    }
+
+    function load(){
+        var checked = JSON.parse(localStorage.getItem('keepChecked'));
+        document.querySelector(".check-input").checked = checked;
+    }
+
+    function wis(){
+        location.reload();
+        localStorage.clear()
+    }
+
+    load();
+    btn.addEventListener('click', save)
+  }
+}
+keepChecked.checking()

@@ -11,8 +11,6 @@ Ik heb dit gedaan met de ```api``` van [pixabay](https://pixabay.com).
 ## Het bouwen
 Toen ik de foto's met een ```api``` had ingeladen, moest ik er voor gaan zorgen dat er een slider ingebouwd werd. Dit heb ik zo gedaan: iedere keer als een gebruiker op een foto klikt worden er een ```section``` aangemaakt. In die ```section``` wordt ook een ```img``` element toegevoegd. De ```src``` van deze foto wordt bepaald door de foto waar de gebruiker op heeft geklikt. Vervolgens maak ik ook nog 2 elementen aan waarmee de gebruiker vanuit de overlay door kan klikken naar de volgende foto.
 
-## Testen
-
 ## Principles of user interface design
 * **1 Clarity** - Het is op deze pagina meteen duidelijk wat je er mee kan doen.
 * **3 Conserve attetion at all costs** - Als de gebruiker op de foto klikt, verschijnt er een overlay die het hele scherm bedekt en ervoor zorgt dat je de foto optimaal kan bekijken en niet wordt afgeleidt door andere dingen.
