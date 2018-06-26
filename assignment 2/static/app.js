@@ -4,27 +4,32 @@ var scrollable = {
       var counter = 0;
       var element = document.querySelectorAll('#container', 'section');
       var nav = document.querySelector('nav');
+      var intro = document.getElementById('intro');
 
-      var saveButton = document.querySelector("#save-progress")
+      // var saveButton = document.querySelector("#save-progress")
 
       var containerCheck = element.offsetTop;
 
       var scrollPosY = window.pageYOffset | document.body.scrollTop;
+      console.log(scrollPosY);
 
       var listItems = document.querySelector('li');
 
       for (var i = 0; i < element.length; i++) {
         element[i].offsetHeight
+        console.log(element[i].offsetHeight);
 
         if (element[i].offsetHeight >= 421 && scrollPosY >= 1200) {
           // counter++
           // listItems.classList.add('color')
-          saveButton.classList.add('sticky-button');
+          // saveButton.classList.add('sticky-button');
+          intro.classList.add('opacity');
           nav.classList.add('sticky')
         } else {
           // counter--
           // listItems.classList.remove('color')
-          saveButton.classList.remove('sticky-button');
+          // saveButton.classList.remove('sticky-button');
+          intro.classList.remove('opacity');
           nav.classList.remove('sticky');
         }
       }
